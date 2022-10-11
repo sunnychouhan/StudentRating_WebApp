@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/display_form.css}"/>
+    <style>
+div.mytable {
+  margin: auto;
+  width: 1020px;
+  padding: 10px;
+}
+    </style>
+    <script>
+    function showRatingByStudentName() {
+        var select = document.getElementById('stdId');
+        var value = select.options[select.selectedIndex].value;
+        if (value === "") {
+          alert("Please Select Student Name from Dropdown.")
+        } else{
+         location.href = "/average/scorebystudent/" +  value;
+        }
+    }
+    function showRatingBySubjectName() {
+    var select = document.getElementById('sbjId');
+
+    var value = select.options[select.selectedIndex].value;
+        if (value === "") {
+          alert("Please Select Subject Name from Dropdown.")
+        } else{
+        location.href = "/average/scorebysubject/" +  value
+        }
+    }
+
+
+y
+
+    </script>
+</head>
+<body>
+
+<div class="mytable">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <!--            <li class="breadcrumb-item active" aria-current="page">Employees</li>-->
+        </ol>
+    </nav>
+</div>
+
+<div class="form-row">
+    <div style="text-align:right;" class="col-md-6 form-group">
+        <a style='width: 200px;' th:href="@{/detail_form}" class="btn btn-success">
+            <i class="fa fa-arrow-circle-o-left"></i>Add New Enrollment
+        </a>
+    </div>
+</div>
+<div class="form-row">
+    <div style="text-align:right;" class="col-md-6 form-group">
+        <a style='width: 200px;' onClick="showRatingByStudentName()" class="btn btn-success">
+            <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Student Average Score
+        </a>
+    </div>
+    <div>
+        <select id="stdId" style='width: 200px;' class="form-control">
+            <option value="">Choose...</option>
+            <option value="Ananth">Ananth</option>
+            <option value="Chaya">Chaya</option>
+            <option value="Davanth">Davanth</option>
+            <option value="Esharath">Esharath</option>
+            <option value="Bhagath">Bhagath</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-row">
+    <div style="text-align:right;" class="col-md-6 form-group">
+        <a style='width: 200px;' onClick="showRatingBySubjectName()" class="btn btn-success">
+            <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Subject Average Score
+        </a>
+
+    </div>
+    <div>
+        <select id="sbjId" style='width: 200px;' class="form-control">
+            <option value="">Choose...</option>
+            <option value="Computing Techniques">Computing Techniques</option>
+            <option value="Electro Fields">Electro Fields</option>
+        </select>
+    </div>
+</div>
+
+<table class="table table-striped table-primary">
+
+    <thead class="top">
+    <tr class="table-info">
+        <td width="20px"><b> ID</b></td>
+        <td><b>NAME</b></td>
+        <td><b>SUBJECT</b></td>
+        <td><b>CATEGORY</b></td>
+        <td><b>SUBMISSION_DATE</b></td>
+        <td><b>SCORE</b></td>
+        <td><b>ACTION</b></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student, iStat : ${studentScore}" th:style="${iStat.odd}? 'font-weight: normal; cursor: pointer' ">
+
+        <td th:text="${student.studentId}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.subject}"></td>
+        <td th:text="${student.category}"></td>
+        <td th:text="${student.submissionDate}"></td>
+        <td th:text="${student.points}"></td>
+
+        <td colspan="2">&nbsp;
+            <a th:href="@{/student/enrollment/{id}(id=${student.studentId})}" method="get"
+               class="btn btn-success"><i class="fa fa-arrow-circle-o-left"></i>&nbsp;Update</a>
+
+            <a th:href="@{/delete/student/enrollment/{id}(id=${student.studentId})}"
+               class="btn btn-success"><i class="fa fa-arrow-circle-o-left"></i>&nbsp;Remove</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

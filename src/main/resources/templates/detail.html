@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/css/display_form.css}"/>
+
+    <style>
+div.mytable {
+  margin: auto;
+  width: 1020px;
+  padding: 10px;
+}
+
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="mytable">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <!--                <li class="breadcrumb-item active" aria-current="page">Update Enrollment Details</li>-->
+            </ol>
+        </nav>
+    </div>
+
+    <hr>
+    <form action="#" th:action="@{/student/enrollment}"
+          method="post" th:object="${studentdetail}">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{studentId}"/>
+
+        <label>Name</label>
+        <input type="text" th:field="*{name}" class="form-control mb-4 col-4">
+
+        <label>Subject</label>
+        <input type="text" th:field="*{subject}" class="form-control mb-4 col-4">
+        <label>Category</label>
+        <input type="text" th:field="*{category}" class="form-control mb-4 col-4">
+        <label>Submission Date</label>
+        <input type="text" th:field="*{submissionDate}" class="form-control mb-4 col-4">
+        <label>Points</label>
+        <input type="text" th:field="*{points}" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Update</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/student/enrollment}"> Back</a>
+</div>
+</body>
+</html>

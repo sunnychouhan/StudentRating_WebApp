@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Welcome</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+
+   </head>
+   <body>
+      <h1>Welcome Student Rating System</h1>
+      <hr>
+      <div >
+      <a id="display" th:href="@{/student/enrollment}" method="get">Show Student Enrollments</a>
+      </div>
+      <div>
+         <a th:href="@{/assignment/category}">Show Assignment Categories</a>
+      </div>
+<!--      <form id="display" th:action="@{/displayAll}" method="get">-->
+<!--         <button type="submit" class="btn btn-primary btn-block mt-3">Display All</button>-->
+<!--      </form>-->
+   </body>
+</html>
