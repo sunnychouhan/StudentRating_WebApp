@@ -11,7 +11,7 @@ It covers following Scenario:
 2) Compute & Display subject average score per assignment category &overall rating for assigned student(s).
 3) Basic features.
 
-    1) Add/remove assignment category with weights to an existing list.
+    1) Display assignment category with weights to an existing list.
     2) Display all assignment categories with their weights.
     3) CRUD operations for student enrollment to subject(s)with Assignment Category (Default values for date of
        submission and Point)
