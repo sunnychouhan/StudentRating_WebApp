@@ -22,6 +22,9 @@ It covers following Scenario:
 2) java -jar ./target/SU20343138_WebApp_Rating-0.0.1-SNAPSHOT.jar
 3) Open http://localhost:8080/. It will Land on index page, just click 'Show Student Enrollment'.
 
+###NOTE: There is no validation on input text or data due to time constraint. Application is built for running Happy Scenarios Only.
+
+
 Refer the Screen shot for example output:
 
 
